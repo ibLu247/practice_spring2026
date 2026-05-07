@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+
+        <form action="/employees" method="POST">
+
+            <input
+                type="text"
+                name="first_name"
+                placeholder="Имя"
+                required
+            >
+
+            <input
+                type="text"
+                name="last_name"
+                placeholder="Фамилия"
+                required
+            >
+
+            <select name="position">
+                <option>CEO</option>
+                <option>Backend Developer</option>
+                <option>Frontend Developer</option>
+                <option>QA Engineer</option>
+            </select>
+
+            <button type="submit">Добавить</button>
+
+        </form>
+
+        <h1>Сотрудники</h1>
+
+        <table>
+
+            <tr>
+                <th>Имя</th>
+                <th>Фамилия</th>
+                <th>Должность</th>
+            </tr>
+
+            {{range .}}
+            <tr>
+                <td>{{.FirstName}}</td>
+                <td>{{.LastName}}</td>
+                <td>{{.Position}}</td>
+            </tr>
+            {{end}}
+
+        </table>
+
+    </body>
+</html>
